@@ -21,6 +21,7 @@
         <div>
             <label for="email">email input type:</label>
             <input type="email" name="email" id="email" placeholder="johndoe@example.com">
+            <error-email id="error-email"></error-email>
         </div>
         <div>
             <label for="url">url input type:</label>
@@ -65,7 +66,15 @@
         salarySelect.addEventListener('input',()=>{
             salaryUpdate[0].textContent=salarySelect.value;
         });
-        
+        const email=document.getElementById('email');
+        const errorEmail=document.getElementById('error-email');
+        email.addEventListener('input',()=>{
+            let emailRegex=RegExp('^abc(.[a-z]+[0-9]*)?@(bl.co)(.[a-z]{2})?$');
+            if(emailRegex.test(email.value))
+                errorEmail.textContent='proper email';
+            else
+                errorEmail.textContent='incorrect email';
+        });
     </script>
 </body>
 </html>
