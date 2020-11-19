@@ -34,6 +34,7 @@
         <div>
             <label for="tel">tel input type:</label>
             <input type="tel" name="tel" id="tel" placeholder="00 1111111111">
+            <error-tel id="error-tel"></error-tel>
         </div>
         <div>
             <label for="search">search input type:</label>
@@ -66,7 +67,24 @@
         salarySelect.addEventListener('input',()=>{
             salaryUpdate[0].textContent=salarySelect.value;
         });
-       
+        const email=document.getElementById('email');
+        const errorEmail=document.getElementById('error-email');
+        email.addEventListener('input',()=>{
+            let emailRegex=RegExp('^abc(.[a-z]+[0-9]*)?@(bl.co)(.[a-z]{2})?$');
+            if(emailRegex.test(email.value))
+                errorEmail.textContent='proper email';
+            else
+                errorEmail.textContent='incorrect email';
+        });
+        const tel=document.getElementById('tel');
+        const telError= document.getElementById('error-tel');
+        const telRegex=RegExp('^\\d{2}\\s{1}\\d{10}$');
+        tel.addEventListener('input',()=>{
+            if(telRegex.test(tel.value))
+                telError.textContent='proper telephone number';
+            else
+                telError.textContent='incorrect telephone number';
+        });
     </script>
 </body>
 </html>
