@@ -88,7 +88,7 @@
         });
         const pass=document.getElementById('pass');
         const passError=document.getElementById('error-pass');
-        const passRegex=RegExp('^[\\w\\W]{8,}');
+        const passRegex=RegExp('((?=.*[A-Z])(?=.*[0-9])(?=.*![\\d\\w])).{8,}');
         pass.addEventListener('input',()=>{
             if(passRegex.test(pass.value))
                 passError.textContent='strong password';
@@ -98,3 +98,4 @@
     </script>
 </body>
 </html>
+
