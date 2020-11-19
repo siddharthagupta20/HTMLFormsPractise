@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 5 Form(Day-36)</title>
+    <link rel="stylesheet" href="/Practise Problems(Day-36)Forms/css/main.css">
+</head>
+<body>
+    <header>HTML 5 Form Input Fields</header>
+    <form action="" class="form">
+        <div class="name-container">
+            <label for="name">text input for Name:</label>
+            <input type="text" name="name" id="name" placeholder="John Doe">
+            <error-msg id="error-name"></error-msg>
+        </div>
+        <div>
+            <label for="pass">password input type:</label>
+            <input type="password" name="password" id="pass" placeholder="J0hn.doe">
+        </div>
+        <div>
+            <label for="email">email input type:</label>
+            <input type="email" name="email" id="email" placeholder="johndoe@example.com">
+        </div>
+        <div>
+            <label for="url">url input type:</label>
+            <input type="url" name="url" id="url" placeholder="http://url.com">
+        </div>
+        <div>
+            <label for="number">number input type:</label>
+            <input type="number" name="number" id="number" placeholder="123">
+        </div>
+        <div>
+            <label for="tel">tel input type:</label>
+            <input type="tel" name="tel" id="tel" placeholder="00 1111111111">
+        </div>
+        <div>
+            <label for="search">search input type:</label>
+            <input type="search" name="search" id="search" placeholder="anything">
+        </div>
+        <div>
+            <label for="datetime">Choose a date and time:</label>
+            <input type="datetime-local" name="datetime" id="datetime">
+        </div>
+        <div>
+            <label for="salary">Choose your salary:</label>
+            <input type="range" name="salary"id="salary" min="10000" max="1000000" step="1000" value="50000">
+            <selected class="salary">50000</selected>
+        </div>
+        <input type="submit" id="button">
+    </form>
+    <script>
+        const name=document.querySelector('#name');
+        const error=document.getElementById('error-name');
+        name.addEventListener('input',()=>{
+            let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}[\\s]{1}[A-Z]{1}[a-z]{2,}$');
+            if(nameRegex.test(name.value))
+                error.innerHTML="Name is proper";
+            else
+                error.textContent="Name is incorrect";
+        });
+        const salarySelect=document.getElementById('salary');
+        const salaryUpdate=document.getElementsByClassName('salary');
+        console.log(salaryUpdate[0]);
+        salarySelect.addEventListener('input',()=>{
+            salaryUpdate[0].textContent=salarySelect.value;
+        });
+        
+    </script>
+</body>
+</html>
