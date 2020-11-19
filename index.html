@@ -17,6 +17,7 @@
         <div>
             <label for="pass">password input type:</label>
             <input type="password" name="password" id="pass" placeholder="J0hn.doe">
+            <error-pass id="error-pass"></error-pass>
         </div>
         <div>
             <label for="email">email input type:</label>
@@ -84,6 +85,15 @@
                 telError.textContent='proper telephone number';
             else
                 telError.textContent='incorrect telephone number';
+        });
+        const pass=document.getElementById('pass');
+        const passError=document.getElementById('error-pass');
+        const passRegex=RegExp('^[\\w\\W]{8,}');
+        pass.addEventListener('input',()=>{
+            if(passRegex.test(pass.value))
+                passError.textContent='strong password';
+            else
+                passError.textContent='weak password';
         });
     </script>
 </body>
