@@ -44,8 +44,3 @@ form{
     width: 15%;
     align-self: center;
 }
-#error-email{
-    color: red;
-    font-size: .7em;
-    margin-left: .7em;
-}
